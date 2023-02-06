@@ -6,3 +6,6 @@ label_diffraction_patterns.py contains an easy matplotlib labelling tool for Lau
 
 [1] Laue Atlas: Eduard Preuss , Bernhard Krahl-Urban , Rainer Butz
 [2] https://www.physics.utoronto.ca/~phy326/laue/: David Bailey
+
+
+![alt text](https://github.com/louisprimeau/laue_fitting/blob/main/Ge_example.png)

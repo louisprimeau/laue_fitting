@@ -14,10 +14,9 @@ def onclick(event):
     fig.canvas.flush_events()
 
 def sharpen_image(image):
-    image = (image - np.min(image)) / (np.max(image) - np.min(image)) # ensure image is normalized
-    image = scipy.ndimage.gaussian_filter(image, sigma=3) # gausisan filter
-    image[image < 0.1] = 0 # remove bottom 10%
-    #image = (image - np.min(image)) / (np.max(image) - np.min(image))
+    #image = (image - np.min(image)) / (np.max(image) - np.min(image)) # ensure image is normalized
+    #image = scipy.ndimage.gaussian_filter(image, sigma=3) # gausisan filter
+    image = (image - np.min(image)) / (np.max(image) - np.min(image))
     return image
     
 path = 'data'
@@ -33,7 +32,7 @@ for filename in os.listdir(path):
         
         fig = plt.figure()
         ax = fig.add_subplot(111)
-        ax.imshow(image)
+        ax.imshow(image, vmin = np.mean(image) - 3*np.std(image), vmax = np.mean(image) + 3 * np.std(image))
         cid = fig.canvas.mpl_connect('button_press_event', onclick)
         plt.show()
 
